@@ -7,8 +7,7 @@
         <parameter key="palabre_project.project_model.class">Palabre\ProjectBundle\Entity\Project</parameter>
     </parameters>
     <services>
-        <service id="palabre_project.project_mapper" class="Palabre\ProjectBundle\Repository\ProjectRepository" public="true">
-            <argument type="service" id="doctrine.orm.entity_manager" />
+        <service id="palabre_project.project_mapper" factory-service="doctrine.orm.entity_manager" factory-method="getRepository" class="Palabre\ProjectBundle\Repository\ProjectRepository" public="true">
             <argument>%palabre_project.project_model.class%</argument>
         </service>
     </services>

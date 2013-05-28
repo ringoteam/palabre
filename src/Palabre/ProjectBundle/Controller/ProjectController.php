@@ -5,11 +5,13 @@ namespace Palabre\ProjectBundle\Controller;
 use Palabre\ProjectBundle\Model\Project;
 use Palabre\ProjectBundle\Form\ProjectType;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
 /**
  * Classe ProjectController
  *
  */
-class ProjectController 
+class ProjectController extends Controller
 {
     public function indexAction()
     {

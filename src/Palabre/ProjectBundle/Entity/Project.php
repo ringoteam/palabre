@@ -1,15 +1,15 @@
 <?php
  
-namespace Palabre\UserBundle\Entity;
+namespace Palabre\ProjectBundle\Entity;
  
-use FOS\UserBundle\Entity\User as BaseUser;
+use Palabre\ProjectBundle\Model\Project as BaseProject;
 use Doctrine\ORM\Mapping as ORM;
  
 /**
  * @ORM\Entity(repositoryClass="Palabre\ProjectBundle\Repository\ProjectRepository")
  * @ORM\Table(name="palabre_project")
  */
-class Project extends BaseUser
+class Project extends BaseProject
 {
     /**
      * @ORM\Id

@@ -2,11 +2,13 @@
 
 namespace Palabre\ProjectBundle\Manager;
 
+use Palabre\ProjectBundle\Model\Project;
+
 /**
  * Classe ProjectManagerInterface
  *
  */
-class ProjectManagerInterface 
+interface ProjectManagerInterface 
 {
     public function create(Project $project);
     public function createNew();

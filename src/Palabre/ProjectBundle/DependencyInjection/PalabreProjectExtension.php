@@ -1,6 +1,6 @@
 <?php
 
-namespace Palabre\Bundle\ProjectBundle\DependencyInjection;
+namespace Palabre\ProjectBundle\DependencyInjection;
 
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
