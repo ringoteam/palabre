@@ -4,7 +4,8 @@ namespace Palabre\ProjectBundle\Entity;
  
 use Palabre\ProjectBundle\Model\Project as BaseProject;
 use Doctrine\ORM\Mapping as ORM;
- 
+use Gedmo\Mapping\Annotation as Gedmo;
+
 /**
  * @ORM\Entity(repositoryClass="Palabre\ProjectBundle\Repository\ProjectRepository")
  * @ORM\Table(name="palabre_project")
@@ -25,7 +26,23 @@ class Project extends BaseProject
      * @ORM\Column(type="string", length=255)
      */
     protected $name;
+
+    /**
+     * Description
+     * 
+     * @var string 
+     * @ORM\Column(type="text")
+     */
+    protected $description;
     
+    /**
+     * CreatedAt
+     * 
+     * @Gedmo\Timestampable(on="create")
+     * @ORM\Column(name="createdAt", type="datetime")
+     */
+    private $created;
+
     /*
      * @var \Doctrine\Common\Collections\ArrayCollection  
      * 

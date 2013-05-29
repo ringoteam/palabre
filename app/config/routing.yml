@@ -18,3 +18,6 @@ fos_user_change_password:
     
 palabre_project:
     resource: "@PalabreProjectBundle/Resources/config/routing/project.yml"
+
+palabre_project:
+    resource: "@PalabreAppBundle/Resources/config/routing/home.yml"

@@ -9,7 +9,9 @@ abstract class Project
 {
     protected $id;
     protected $name;
+    protected $description;
     protected $users;
+    protected $createdAt;
 
     public function addUser(User $user)
     {
@@ -21,6 +23,16 @@ abstract class Project
     public function getId()
     {
         return $this->id;
+    }
+
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
+    }
+    
+    public function getDescription()
+    {
+        return $this->description;
     }
 
     public function getName()
@@ -54,5 +66,10 @@ abstract class Project
     public function setUsers(ArrayCollection $users) 
     {
         $this->users = $users;
+    }
+
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 }
