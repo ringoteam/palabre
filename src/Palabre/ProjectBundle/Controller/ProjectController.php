@@ -51,7 +51,7 @@ class ProjectController extends Controller
     
     public function updateAction($id)
     {
-        $project = $this->getManager()->find($id);
+        $project = $this->findProject($id);
         $form = $this->getForm($project);
         if ('POST' == $request->getMethod()) {
             $form->bindRequest($request);
@@ -76,17 +76,34 @@ class ProjectController extends Controller
     
     public function deleteAction($id)
     {
-        $project = $this->getManager()->find($id);
-        if($project) {
-            $this->getManager()->delete($project);
-            $this->get('session')->setFlash('success', 'Project has been deleted successfully');
-        }else {
-            $this->get('session')->setFlash('error', 'This project does not exist');
-        }
+        $project = $this->findProject($id);
+        
+        $this->getManager()->delete($project);
+        $this->get('session')->setFlash('success', 'Project has been deleted successfully');
+        
         
         return new RedirectResponse($this->generateUrl('palabre_project_projects'));
     }
     
+    public function usersAction($id)
+    {
+        $project = $this->findProject($id);
+        
+    }
+
+    public function permissionsAction($id)
+    {
+        $project = $this->findProject($id);
+    }
+
+    protected findProject($id)
+    {
+        $project = $this->getManager()->find($id);
+        if(!$project) {
+            $this->createNotFoundException(sprintf('Project %s does not exist', $id));
+        }
+    }
+
     protected function getManager()
     {
         return $this->get('palabre_project.project_manager');

@@ -11,7 +11,7 @@ use Symfony\Component\Form\FormBuilderInterface;
  * Form for Project
  * 
  */
-class ProjectType extends AbstractType
+class ProjectUserType extends AbstractType
 {
     /**
      * Build form
@@ -22,8 +22,6 @@ class ProjectType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add('id', 'hidden');
-        $builder->add('name', 'text');
-        $builder->add('description', 'text');
     }
 
     /**

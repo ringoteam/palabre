@@ -10,12 +10,25 @@
   </head>
  
     <body>
-    {% block nav %}
-    {% endblock %}
-            
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </a>
+            <a class="brand" href="{{ path('palabre_home') }}">Palabre</a>
+            {% block nav %}
+            {% endblock %}
+           </div>
+        </div>
+    </div> 
     <div class="container-fluid">
         <div class="row">
-           
+            {% block message %}
+                {% include 'PalabreAppBundle:Main:message.html.twig' %}
+            {% endblock %}
             <div class="span12">
                 {% block main %}
 
