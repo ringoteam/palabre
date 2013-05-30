@@ -1,0 +1,22 @@
+{% extends '::base.html.twig' %}
+
+{% block main %}
+    <h2>Create a Project</h2>
+    
+      
+    <form action="{{ path('palabre_project_project_create') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_row(form.id) }}
+        {{ form_row(form._token) }}
+        <div class="field">
+            {{ form_errors(form.name) }}
+            {{ form_label(form.name) }}    
+            {{ form_widget(form.name) }}
+        </div>    
+        <div class="field">
+            {{ form_errors(form.description) }}
+            {{ form_label(form.description) }}    
+            {{ form_widget(form.description) }}
+        </div>
+        <input class="btn" type="submit" value="Submit" />
+    </form>
+{% endblock %}    

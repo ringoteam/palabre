@@ -4,6 +4,7 @@ namespace Palabre\ProjectBundle\Controller;
 
 use Palabre\ProjectBundle\Model\Project;
 use Palabre\ProjectBundle\Form\ProjectType;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -27,11 +28,18 @@ class ProjectController extends Controller
     
     public function createAction()
     {
+
         $form = $this->getForm();
+        $request = $this->get('Request');
         if ('POST' == $request->getMethod()) {
             $form->bindRequest($request);
             if ($form->isValid()) {
-                $this->getManager()->create($form->getData());
+                $project = $form->getData();
+                $this->getManager()->create($project);
+                $this->getAclManager()->grant(
+                    $project,
+                    $this->get('security.context')->getToken()->getUser()
+                );
                 $this->get('session')->setFlash('success', 'Project created successfully');
 
                 return new RedirectResponse($this->generateUrl('palabre_project_projects'));
@@ -43,8 +51,7 @@ class ProjectController extends Controller
         return $this->render(
             $this->getTemplatePath().'create.html.twig',
             array(
-                'form' => $form->createView(),
-                'errors' => $form->getErrors()
+                'form' => $form->createView()
             )
         );
     }
@@ -53,6 +60,7 @@ class ProjectController extends Controller
     {
         $project = $this->findProject($id);
         $form = $this->getForm($project);
+        $request = $this->get('Request');
         if ('POST' == $request->getMethod()) {
             $form->bindRequest($request);
             if ($form->isValid()) {
@@ -68,8 +76,8 @@ class ProjectController extends Controller
         return $this->render(
             $this->getTemplatePath().'update.html.twig',
             array(
-                'form' => $form->createView(),
-                'errors' => $form->getErrors()
+                'form'    => $form->createView(),
+                'project' => $project
             )
         );
     }
@@ -96,12 +104,14 @@ class ProjectController extends Controller
         $project = $this->findProject($id);
     }
 
-    protected findProject($id)
+    protected function findProject($id)
     {
         $project = $this->getManager()->find($id);
         if(!$project) {
             $this->createNotFoundException(sprintf('Project %s does not exist', $id));
         }
+
+        return $project;
     }
 
     protected function getManager()
@@ -109,6 +119,11 @@ class ProjectController extends Controller
         return $this->get('palabre_project.project_manager');
     }
     
+    protected function getAclManager()
+    {
+        return $this->get('palabre_project.acl.project_manager');
+    }
+
     /**
      * Get template path for this controller
      * 
@@ -116,10 +131,10 @@ class ProjectController extends Controller
      */
     protected function getTemplatePath()
     {
-        return 'PalabreProjectbundle:Project:';
+        return 'PalabreProjectBundle:Project:';
     }
     
-    protected function getForm(Project $project)
+    protected function getForm(Project $project = null)
     {
         if(!$project) {
             $project = $this->getManager()->createNew();

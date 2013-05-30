@@ -18,11 +18,11 @@ class User extends BaseUser
      */
     protected $id;
     
-    /*
+    /**
      * @var \Doctrine\Common\Collections\ArrayCollection  
      * 
-     * @ORM\ManyToMany(targetEntity="Palabre\ProjectBundle\Entity\Project", inversedBy="users")
-     * @ORM\JoinTable(name="user_project")
+     * @ORM\ManyToMany(targetEntity="Palabre\ProjectBundle\Entity\Project", inversedBy="users", cascade={"persist"})
+     * @ORM\JoinTable(name="palabre_project_user")
      */
     protected $projects;
 }

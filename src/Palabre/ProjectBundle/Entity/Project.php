@@ -36,19 +36,20 @@ class Project extends BaseProject
     protected $description;
     
     /**
+     * @var \Doctrine\Common\Collections\ArrayCollection  
+     * 
+     * @ORM\ManyToMany(targetEntity="Palabre\UserBundle\Entity\User", mappedBy="projects", cascade={"persist"})
+     */
+    protected $users;
+
+    /**
      * CreatedAt
      * 
      * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="createdAt", type="datetime")
      */
-    private $created;
+    protected $createdAt;
 
-    /*
-     * @var \Doctrine\Common\Collections\ArrayCollection  
-     * 
-     * @ORM\ManyToMany(targetEntity="Palabre\UserBundle\Entity\User", inversedBy="projects")
-     * @ORM\JoinTable(name="user_project")
-     */
-    protected $users;
+    
     
 }

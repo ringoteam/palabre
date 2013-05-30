@@ -23,7 +23,12 @@ class ProjectType extends AbstractType
     {
         $builder->add('id', 'hidden');
         $builder->add('name', 'text');
-        $builder->add('description', 'text');
+        $builder->add('description', 'textarea');
+        $builder->add('users', 'entity', array(
+           'class' => 'PalabreUserBundle:User',
+           'property' => 'username',
+           'multiple' => true
+        ));
     }
 
     /**
@@ -45,6 +50,6 @@ class ProjectType extends AbstractType
      */
     public function getName()
     {
-        return 'palabre.project.form.project';
+        return 'palabre_project_form_project';
     }
 }

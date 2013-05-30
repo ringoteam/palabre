@@ -1,27 +1,27 @@
 palabre_project_project_new:
-    pattern:   /project/new
+    pattern:   /new
     defaults:  { _controller: PalabreProjectBundle:Project:create }
 
 palabre_project_project_create:
-    pattern:   /project/create
+    pattern:   /create
     defaults:  { _controller: PalabreProjectBundle:Project:create }
     requirements:
         _method:  POST
         
 palabre_project_project_edit:
-    pattern:   /project/edit/{id}
+    pattern:   /edit/{id}
     defaults:  { _controller: PalabreProjectBundle:Project:update }
     
 palabre_project_project_update:
-    pattern:   /project/update/{id}
+    pattern:   /update/{id}
     defaults:  { _controller: PalabreProjectBundle:Project:update }
     requirements:
         _method:  POST
         
 palabre_project_projects:
-    pattern:   /projects
+    pattern:   /
     defaults:  { _controller: PalabreProjectBundle:Project:index }
     
 palabre_project_project_delete:
-    pattern:   /project/delete/{id}
+    pattern:   /delete/{id}
     defaults:  { _controller: PalabreProjectBundle:Project:delete }

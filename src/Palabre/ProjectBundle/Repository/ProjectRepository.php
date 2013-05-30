@@ -18,7 +18,8 @@ class ProjectRepository extends EntityRepository implements ProjectMapperInterfa
     
     public function update(Project $project)
     {
-        $this->_em->flush($project);
+        $this->_em->persist($project);
+        $this->_em->flush();
         
         return $project;
     }

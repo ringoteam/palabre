@@ -9,7 +9,7 @@
     </parameters>
  
     <services>
-        <service id="application.acl_manager" class="%palabre_project.acl.project_manager.class%">
+        <service id="palabre_project.acl.project_manager" class="%palabre_project.acl.project_manager.class%">
             <argument type="service" id="security.acl.provider" />
         </service>
     </services>

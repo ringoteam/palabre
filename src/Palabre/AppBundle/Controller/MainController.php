@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  * Classe HomeController
  *
  */
-class HomeController extends Controller
+class MainController extends Controller
 {
     public function indexAction()
     {
