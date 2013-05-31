@@ -1,0 +1,6 @@
+{% extends "PalabreUserBundle::layout.html.twig" %}
+{% trans_default_domain 'PalabreUserBundle' %}
+{% block fos_user_content %}
+<h1>{{ 'registration.title'|trans }}</h1>
+{% include "PalabreUserBundle:Registration:register_content.html.twig" %}
+{% endblock fos_user_content %}

@@ -1,0 +1,6 @@
+services:
+    palabre_user.registration.form.type:
+        class: Palabre\UserBundle\Form\Type\RegistrationFormType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: palabre_user_registration }
