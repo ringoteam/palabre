@@ -1,0 +1,4 @@
+# Form field labels
+form:
+    first_name: "first name :"
+    last_name: "last name :"
