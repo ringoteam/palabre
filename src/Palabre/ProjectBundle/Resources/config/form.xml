@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="palabre_project.acl.project_manager.class">Palabre\ProjectBundle\Acl\ProjectManager</parameter>
+        <parameter key="palabre_project.project.form.name">palabre_project_type_project</parameter>
+        <parameter key="palabre_project.project.form.type">Palabre\ProjectBundle\Form\Type\ProjectType</parameter>
+    </parameters>
+    <services>
+     
+        <service id="palabre_project.project_form_type" class="%palabre_project.project.form.type%">
+            <tag name="form.type" alias="%palabre_project.project.form.name%" />
+            <argument type="service" id="fos_user.user_manager" />
+            <argument>%palabre_project.project_model.class%</argument>
+        </service>
+        <service id="palabre_double_list_form_type" class="Palabre\ProjectBundle\Form\Type\DoubleListType">
+            <tag name="form.type" alias="double_list" />
+        </service>
+    </services>
+</container>

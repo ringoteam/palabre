@@ -38,7 +38,8 @@ class Project extends BaseProject
     /**
      * @var \Doctrine\Common\Collections\ArrayCollection  
      * 
-     * @ORM\ManyToMany(targetEntity="Palabre\UserBundle\Entity\User", mappedBy="projects", cascade={"persist"})
+     * @ORM\ManyToMany(targetEntity="Palabre\UserBundle\Entity\User", inversedBy="projects", cascade={"persist", "remove"})
+     * @ORM\JoinTable(name="palabre_project_user")
      */
     protected $users;
 

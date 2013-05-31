@@ -22,6 +22,7 @@ class PalabreProjectExtension extends Extension
          $loader->load('orm.xml');
          $loader->load('manager.xml');
          $loader->load('acl.xml');
+         $loader->load('form.xml');
     }
 
     /**

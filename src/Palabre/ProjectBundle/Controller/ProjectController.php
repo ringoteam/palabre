@@ -64,7 +64,7 @@ class ProjectController extends Controller
         if ('POST' == $request->getMethod()) {
             $form->bindRequest($request);
             if ($form->isValid()) {
-                $this->getManager()->create($form->getData());
+                $this->getManager()->update($form->getData());
                 $this->get('session')->setFlash('success', 'Project updated successfully');
 
                 return new RedirectResponse($this->generateUrl('palabre_project_projects'));
@@ -139,8 +139,10 @@ class ProjectController extends Controller
         if(!$project) {
             $project = $this->getManager()->createNew();
         }
-        
-        return $this->createForm(new ProjectType(), $project);
+        return $this->createForm(
+            $this->container->get('palabre_project.project_form_type'), 
+            $project
+        );
     }
 }
 
