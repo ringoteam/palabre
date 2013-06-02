@@ -10,8 +10,33 @@ use Palabre\ProjectBundle\Model\Project;
 
 class User extends BaseUser
 {
-   
+    protected $firstName;
+    
+    protected $lastName;
+
     protected $projects;
+
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+
+        return $this;
+    }
+
+    public function getFirstName(){
+        return $this->firstName;
+    }
+
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+
+        return $this;
+    }
+
+    public function getLastName(){
+        return $this->lastName;
+    }
 
     public function addProject(Project $project)
     {
@@ -35,5 +60,10 @@ class User extends BaseUser
     public function setProjects(ArrayCollection $projects) 
     {
         $this->projects = $projects;
+    }
+
+    public function __toString()
+    {
+        return ucFirst($this->firstName).' '.ucFirst($this->lastName);
     }
 }

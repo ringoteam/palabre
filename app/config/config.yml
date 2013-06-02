@@ -86,7 +86,5 @@ fos_user:
     db_driver:     orm                        
     firewall_name: main                       
     user_class:    Palabre\UserBundle\Entity\User 
-twig:
-    form:
-        resources:
-            - 'PalabreProjectBundle:Form:double_list.html.twig'
+
+snide_extra_form: ~

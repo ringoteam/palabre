@@ -34,7 +34,7 @@ class ProjectType extends AbstractType
         $builder->add('id', 'hidden');
         $builder->add('name', 'text');
         $builder->add('description', 'textarea');
-        $builder->add('users', 'double_list', array(
+        $builder->add('users', 'entity_double_list', array(
            'class' => 'PalabreUserBundle:User',
            'multiple' => true
         ));
