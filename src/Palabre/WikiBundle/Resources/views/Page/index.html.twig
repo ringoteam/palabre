@@ -1,0 +1,30 @@
+{% extends '::base.html.twig' %}
+
+{% block main %}
+    {% if pages %}
+        <h2>Liste des pages</h2>
+        <table  class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Creation date</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for page in pages %}
+                    <tr>
+                        <td>{{ page.title }}</td>
+                        <td></td>
+                        <td>{{ page.description }}</td>
+                        
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+    {% else %}
+        <h2>No page found</h2>
+    {% endif %}
+    <p>To create a new page, <a href="{{ path('palabre_wiki_page_new') }}">click here</a></p>
+{% endblock %}    

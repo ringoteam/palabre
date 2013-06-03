@@ -20,7 +20,8 @@
         "jms/di-extra-bundle": "1.3.*",
         "friendsofsymfony/user-bundle": "dev-master",
         "gedmo/doctrine-extensions":    "dev-master",
-        "snide/extra-form-bundle": "dev-master"
+        "snide/extra-form-bundle": "dev-master",
+        "stfalcon/tinymce-bundle": "dev-master"
     },
     "scripts": {
         "post-install-cmd": [
