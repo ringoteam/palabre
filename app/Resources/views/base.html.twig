@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block stylesheets %}
         <link rel="stylesheet" href="{{ asset('/public/css/bootstrap.min.css') }}" type="text/css" media="all" />
-        <link rel="stylesheet" href="{{ asset('/public/css/bootstrap-responsive.css') }}" rel="stylesheet">    
-    {% endblock %}
+        <link rel="stylesheet" href="{{ asset('/public/css/bootstrap-responsive.css') }}" rel="stylesheet">   
+        {{ snide_extra_form_init() }}  
+   {% endblock %}
+   
   </head>
  
     <body>
@@ -43,9 +45,11 @@
                 
         </div>
     </div>
-{% block javascript %}
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="{{ asset('/public/js/bootstrap.min.js ') }}"></script>
-{% endblock %}
+    {% block javascript %}
+        <script src="http://code.jquery.com/jquery-latest.js"></script>
+        <script src="{{ asset('/public/js/bootstrap.min.js ') }}"></script>
+        {{ snide_extra_form_renderScript() }}
+    {% endblock %}
   </body>
+
 </html>

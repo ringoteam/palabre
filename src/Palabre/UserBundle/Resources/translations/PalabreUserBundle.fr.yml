@@ -1,0 +1,9 @@
+# Form field labels
+form:
+    first_name: "Prénom :"
+    last_name: "Nom :"
+# registration
+registration:
+    title: "Enregistrement d'un nouvel utilisateur"
+    submit: Enregistrer
+    confirmed: Félicitations %username%, votre compte est maintenant activé.
