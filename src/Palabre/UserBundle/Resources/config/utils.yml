@@ -1,0 +1,4 @@
+services:
+    palabre_user.util.user_manipulator:
+        class: Palabre\UserBundle\Util\UserManipulator
+        arguments: [@fos_user.user_manager]
