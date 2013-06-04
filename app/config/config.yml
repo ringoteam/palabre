@@ -85,6 +85,9 @@ swiftmailer:
 fos_user:
     db_driver:     orm                        
     firewall_name: main                       
-    user_class:    Palabre\UserBundle\Entity\User 
+    user_class:    Palabre\UserBundle\Entity\User
+    registration:
+        form:
+            type: palabre_user_registration 
 
 snide_extra_form: ~
