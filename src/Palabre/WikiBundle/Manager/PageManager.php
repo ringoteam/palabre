@@ -11,5 +11,12 @@ use Palabre\WikiBundle\Manager\PageManagerInterface;
 */
 class PageManager implements PageManagerInterface
 {
-
+	protected $mapper;
+    protected $class;
+    
+    public function __construct(PageMapperInterface $mapper, $class)
+    {
+        $this->mapper = $mapper;
+        $this->class  = $class;
+    }
 }
