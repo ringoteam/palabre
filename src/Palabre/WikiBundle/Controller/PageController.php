@@ -21,7 +21,7 @@ class PageController extends Controller
         return $this->render(
             $this->getTemplatePath().'index.html.twig',
             array(
-                'pages' => $pages; 
+                'pages' => $pages
             )
         );
 	}
