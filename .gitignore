@@ -4,6 +4,8 @@
 /app/cache/*
 /app/logs/*
 /vendor/*
+/bin/*
+/web/bundles/*
 composer.phar
 composer.lock
 
