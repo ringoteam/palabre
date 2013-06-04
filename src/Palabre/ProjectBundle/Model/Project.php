@@ -3,7 +3,7 @@
 namespace Palabre\ProjectBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use FOS\UserBundle\Model\User;
+use Palabre\UserBundle\Model\User;
 
 abstract class Project
 {
@@ -17,6 +17,7 @@ abstract class Project
     {
         if(!$this->getUsers()->contains($user)) {
             $this->getUsers()->add($user);
+            $user->addProject($this);
         }
     }
 
@@ -51,6 +52,7 @@ abstract class Project
     public function removeUser(User $user)
     {
         $this->getUsers()->removeElement($user);
+        $user->removeProject($this);
     }
 
     public function setId($id)
