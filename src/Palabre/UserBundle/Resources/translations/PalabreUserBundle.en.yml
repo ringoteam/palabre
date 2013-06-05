@@ -7,3 +7,16 @@ registration:
     title: "Register a new user"
     submit: Submit
     confirmed: Congrats %username%, your account is now activated.
+# profile
+profile:
+    show:
+        title: "User's detail"
+        first_name: first name
+        last_name: last name
+        username: username
+        email: e-mail
+    edit:
+        title: Edit a user
+        submit: Update
+    flash:
+        updated: Profil updated

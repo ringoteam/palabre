@@ -7,3 +7,16 @@ registration:
     title: "Enregistrement d'un nouvel utilisateur"
     submit: Enregistrer
     confirmed: Félicitations %username%, votre compte est maintenant activé.
+# profile
+profile:
+    show:
+        title: Détail utilisateur
+        first_name: Prénom
+        last_name: Nom
+        username: "Nom d'utilisateur"
+        email: Adresse e-mail
+    edit:
+        title: Modifier utilisateur
+        submit: Mettre à jour
+    flash:
+        updated: Le profil a été mis à jour
