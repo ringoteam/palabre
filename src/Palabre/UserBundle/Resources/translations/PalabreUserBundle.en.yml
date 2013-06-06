@@ -20,3 +20,9 @@ profile:
         submit: Update
     flash:
         updated: Profil updated
+# menu
+menu:
+    profil_show: see profile
+    profil_edit: edit profile
+    registration: create user
+    deconnexion: deconnexion

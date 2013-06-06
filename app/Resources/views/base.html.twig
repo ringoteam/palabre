@@ -31,17 +31,23 @@
     </div> 
     <div class="container">
         <div class="row">
+            <div class="span12">
             {% block message %}
                 {% include 'PalabreAppBundle:Main:message.html.twig' %}
-            {% endblock %}
-            <div class="span12">
+            {% endblock %}   
+            </div>
+            <div class="span9">
                 {% block main %}
 
                 {% endblock%}   
             </div>
+            <div class="span3">
+                {% block user %}
+                     {{ render(controller("PalabreAppBundle:User:menu")) }}
+                {% endblock%}   
+            </div>
             {% block widget %}
-            {% endblock%}   
-                
+            {% endblock%}                      
         </div>
     </div>
     {% block javascript %}
