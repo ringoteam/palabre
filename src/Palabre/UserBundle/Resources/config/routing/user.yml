@@ -1,0 +1,6 @@
+palabre_user_list:
+    pattern:   /list
+    defaults:  { _controller: PalabreUserBundle:User:list }
+palabre_user_edit:
+    pattern:   /edit/{id}
+    defaults:  { _controller: PalabreUserBundle:User:edit }

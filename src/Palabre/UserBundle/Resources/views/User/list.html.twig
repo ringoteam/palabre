@@ -1,0 +1,26 @@
+{% extends '::base.html.twig' %}
+{% trans_default_domain 'PalabreUserBundle' %}
+
+{% block main %}
+
+{% block palabre_user_content %}
+<h1>{{ 'user.list.title'|trans }}</h1>
+<table border="1" cellspading="5">
+<tr>
+    <td>{{ 'user.list.first_name'|trans }} {{ 'user.list.last_name'|trans }}</td>
+    <td>{{ 'user.list.username'|trans }}</td>
+    <td>{{ 'user.list.email'|trans }}</td>
+    <td>&nbsp;</td>
+</tr>
+{% for user in users %}
+<tr>
+    <td>{{ user.firstname }} {{ user.lastname }}</td>
+    <td>{{ user.username }}</td>
+    <td>{{ user.email }}</td>
+    <td><a href="{{ path('palabre_user_edit', {'id':user.id}) }}">{{ 'user.list.edit'|trans }}</a></td>
+</tr>
+{% endfor %}
+</table>
+{% endblock palabre_user_content %}
+
+{% endblock %}

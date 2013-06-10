@@ -24,5 +24,18 @@ profile:
 menu:
     profil_show: voir profil
     profil_edit: modifier profil
+    profil_change_password: modifier mot de passe
     registration: créer utilisateur
     deconnexion: déconnexion
+    user_list: liste utilisateurs
+# user
+user:
+    list:
+        title: liste des utilisateurs
+        first_name: Prénom
+        last_name: Nom
+        username: "Nom d'utilisateur"
+        email: Adresse e-mail
+        edit: modifier
+    edit:
+        title: "modification d'un utilisateur"
