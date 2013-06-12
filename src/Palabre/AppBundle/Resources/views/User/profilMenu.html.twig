@@ -1,0 +1,22 @@
+{% trans_default_domain 'PalabreUserBundle' %}
+
+
+{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+            {{ user.firstname }} {{ user.lastname }}
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+            {% for item in menu %}
+            <li>
+                <a href="{{ path(item.path) }}">{{ item.label|trans }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </li>
+{% else %}
+    <li>
+        <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+    </li>
+{% endif %}

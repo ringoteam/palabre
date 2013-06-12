@@ -4,3 +4,6 @@ palabre_user_list:
 palabre_user_edit:
     pattern:   /edit/{id}
     defaults:  { _controller: PalabreUserBundle:User:edit }
+palabre_user_delete:
+    pattern:   /delete/{id}
+    defaults:  { _controller: PalabreUserBundle:User:delete }

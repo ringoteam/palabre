@@ -22,12 +22,15 @@ profile:
         updated: Profil updated
 # menu
 menu:
-    profil_show: see profile
-    profil_edit: edit profile
-    profil_change_password: change password
-    registration: create user
-    deconnexion: deconnexion
-    user_list: list of users
+    profil:
+        show: see profile
+        edit: edit profile
+        change_password: change password
+        deconnexion: déconnexion
+    user:
+        menu_label : gestion of users
+        list: list of users
+        registration: create user
 # user
 user:
     list:
@@ -37,5 +40,6 @@ user:
         username: username
         email: e-mail
         edit: edit
+        delete: delete
     edit:
         title: user edit

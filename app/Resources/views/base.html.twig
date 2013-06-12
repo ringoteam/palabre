@@ -14,18 +14,15 @@
     <div class="navbar navbar-inverse">
         <div class="navbar-inner">
             <div class="container">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                  <span class="icon-bar"></span>
-                </a>
                 <a class="brand" href="{{ path('palabre_home') }}">Palabre</a>
-                <div class="nav-collapse collapse">
-                  <ul class="nav">
-                    {% block nav %}
-                    {% endblock %}
-                  </ul>
-                </div>
+                <ul class="nav">
+                {% block profilMenu %}
+                     {{ render(controller("PalabreAppBundle:User:profilMenu")) }}
+                {% endblock %} 
+                {% block userMenu %}
+                     {{ render(controller("PalabreAppBundle:User:userMenu")) }}
+                {% endblock %} 
+                </ul>
             </div>
         </div>
     </div> 
@@ -36,14 +33,8 @@
                 {% include 'PalabreAppBundle:Main:message.html.twig' %}
             {% endblock %}   
             </div>
-            <div class="span9">
+            <div class="span12">
                 {% block main %}
-
-                {% endblock%}   
-            </div>
-            <div class="span3">
-                {% block user %}
-                     {{ render(controller("PalabreAppBundle:User:menu")) }}
                 {% endblock%}   
             </div>
             {% block widget %}

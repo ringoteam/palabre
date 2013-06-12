@@ -22,12 +22,15 @@ profile:
         updated: Le profil a été mis à jour
 # menu
 menu:
-    profil_show: voir profil
-    profil_edit: modifier profil
-    profil_change_password: modifier mot de passe
-    registration: créer utilisateur
-    deconnexion: déconnexion
-    user_list: liste utilisateurs
+    profil:
+        show: voir profil
+        edit: modifier profil
+        change_password: modifier mot de passe
+        deconnexion: déconnexion
+    user:
+        menu_label : gestion des utilisateurs
+        list: liste utilisateurs
+        registration: créer utilisateur
 # user
 user:
     list:
@@ -37,5 +40,6 @@ user:
         username: "Nom d'utilisateur"
         email: Adresse e-mail
         edit: modifier
+        delete: supprimer
     edit:
         title: "modification d'un utilisateur"

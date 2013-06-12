@@ -10,7 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
  */
 class UserController extends Controller
 {
-    public function menuAction()
+    public function profilMenuAction()
     {
 
         // récupération user
@@ -19,32 +19,38 @@ class UserController extends Controller
         // liens du menu user
         $aMenu = array();
         $aMenu[0]['path'] = 'fos_user_profile_show';
-        $aMenu[0]['label'] = 'menu.profil_show';
+        $aMenu[0]['label'] = 'menu.profil.show';
         $aMenu[1]['path'] = 'fos_user_profile_edit';
-        $aMenu[1]['label'] = 'menu.profil_edit';
+        $aMenu[1]['label'] = 'menu.profil.edit';
         $aMenu[2]['path'] = 'fos_user_change_password';
-        $aMenu[2]['label'] = 'menu.profil_change_password';
-        $aMenu[3]['path'] = 'fos_user_registration_register';
-        $aMenu[3]['label'] = 'menu.registration';
-        $aMenu[4]['path'] = 'fos_user_security_logout';
-        $aMenu[4]['label'] = 'menu.deconnexion';
-        $aMenu[5]['path'] = 'palabre_user_list';
-        $aMenu[5]['label'] = 'menu.user_list';
+        $aMenu[2]['label'] = 'menu.profil.change_password';
+        $aMenu[3]['path'] = 'fos_user_security_logout';
+        $aMenu[3]['label'] = 'menu.profil.deconnexion';
 
         return $this->render(
-            $this->getTemplatePath().'menu.html.twig',
+            $this->getTemplatePath().'profilMenu.html.twig',
             array('user'=>$user, 'menu'=>$aMenu)
         );
     }
-/*
-    public function getUser()
+    public function userMenuAction()
     {
 
-        $user = $parent::getUser();
-        echo('beni');
+        // récupération user
+        $user = $this->getUser();
 
-        return $user;
-    }*/
+        // liens du menu user
+        $aMenu = array();
+        $aMenu[0]['path'] = 'fos_user_registration_register';
+        $aMenu[0]['label'] = 'menu.user.registration';
+        $aMenu[1]['path'] = 'palabre_user_list';
+        $aMenu[1]['label'] = 'menu.user.list';
+
+        return $this->render(
+            $this->getTemplatePath().'userMenu.html.twig',
+            array('menu'=>$aMenu)
+        );
+    }
+
     
     
     /**

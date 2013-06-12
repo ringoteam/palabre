@@ -1,7 +1,16 @@
-{% extends "PalabreUserBundle::layout.html.twig" %}
+{% extends '::base.html.twig' %}
 {% trans_default_domain 'PalabreUserBundle' %}
 
-{% block fos_user_content %}
+{% block main %}
+
+{% block palabre_user_content %}
 <h1>{{ 'registration.title'|trans }}</h1>
-{% include "PalabreUserBundle:Registration:register_content.html.twig" %}
-{% endblock fos_user_content %}
+<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+</form>
+{% endblock palabre_user_content %}
+
+{% endblock main %}

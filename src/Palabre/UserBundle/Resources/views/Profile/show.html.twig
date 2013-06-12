@@ -1,6 +1,16 @@
-{% extends "PalabreUserBundle::layout.html.twig" %}
+{% extends '::base.html.twig' %}
 {% trans_default_domain 'PalabreUserBundle' %}
 
-{% block fos_user_content %}
-{% include "PalabreUserBundle:Profile:show_content.html.twig" %}
-{% endblock fos_user_content %}
+{% block main %}
+
+{% block palabre_user_content %}
+<div>
+<h1>{{ 'profile.show.title'|trans }}</h1>
+    <p>{{ 'profile.show.first_name'|trans }}: {{ user.firstname }}</p>
+    <p>{{ 'profile.show.last_name'|trans }}: {{ user.lastname }}</p>
+    <p>{{ 'profile.show.username'|trans }}: {{ user.username }}</p>
+    <p>{{ 'profile.show.email'|trans }}: {{ user.email }}</p>
+</div>
+{% endblock palabre_user_content %}
+
+{% endblock main %}
