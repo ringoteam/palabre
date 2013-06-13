@@ -17,10 +17,10 @@
                 <a class="brand" href="{{ path('palabre_home') }}">Palabre</a>
                 <ul class="nav">
                 {% block profilMenu %}
-                     {{ render(controller("PalabreAppBundle:User:profilMenu")) }}
+                     {{ render(controller("PalabreAppBundle:Menu:profilMenu")) }}
                 {% endblock %} 
                 {% block userMenu %}
-                     {{ render(controller("PalabreAppBundle:User:userMenu")) }}
+                     {{ render(controller("PalabreAppBundle:Menu:userMenu")) }}
                 {% endblock %} 
                 </ul>
             </div>

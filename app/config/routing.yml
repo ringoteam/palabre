@@ -19,7 +19,7 @@ palabre_home:
     resource: "@PalabreAppBundle/Resources/config/routing/home.yml"
 palabre_user_list:
     resource: "@PalabreUserBundle/Resources/config/routing/user.yml"
-    prefix: /user
+    prefix: /admin/user
 palabre_user_edit:
     resource: "@PalabreUserBundle/Resources/config/routing/user.yml"
-    prefix: /user
+    prefix: /admin/user

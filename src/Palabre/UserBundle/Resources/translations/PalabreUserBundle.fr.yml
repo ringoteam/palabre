@@ -1,3 +1,12 @@
+# Security
+"Bad credentials": "Nom d'utilisateur ou mot de passe incorrect"
+security:
+    login:
+        username: "Nom d'utilisateur :"
+        password: "Mot de passe :"
+        remember_me: Se souvenir de moi
+        submit: Connexion
+        title: Connexion
 # Form field labels
 form:
     first_name: "Prénom :"
@@ -23,23 +32,26 @@ profile:
 # menu
 menu:
     profil:
-        show: voir profil
-        edit: modifier profil
-        change_password: modifier mot de passe
-        deconnexion: déconnexion
+        show: Voir profil
+        edit: Modifier profil
+        change_password: Modifier mot de passe
+        deconnexion: Déconnexion
     user:
-        menu_label : gestion des utilisateurs
-        list: liste utilisateurs
-        registration: créer utilisateur
+        menu_label : Gestion des utilisateurs
+        list: Liste utilisateurs
+        registration: Créer utilisateur
 # user
 user:
     list:
-        title: liste des utilisateurs
+        title: Liste des utilisateurs
+        search: Rechercher
+        previous: Précédent
+        next: Suivant
         first_name: Prénom
         last_name: Nom
         username: "Nom d'utilisateur"
         email: Adresse e-mail
-        edit: modifier
-        delete: supprimer
+        edit: Modifier
+        delete: Supprimer
     edit:
-        title: "modification d'un utilisateur"
+        title: "Modification d'un utilisateur"

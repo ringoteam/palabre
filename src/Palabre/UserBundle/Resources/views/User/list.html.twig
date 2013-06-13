@@ -5,6 +5,8 @@
 
 {% block palabre_user_content %}
 <h1>{{ 'user.list.title'|trans }}</h1>
+
+{% if users is not empty %}
 <table class="table table-striped">
 <tbody>
 {% for user in users %}
@@ -28,6 +30,27 @@
 {% endfor %}
 </tbody>
 </table>
+{% else %}
+Pas de user
+{% endif %}
+
+{% if last_page > 1 %}
+<div class="pagination pagination-centered">
+    <ul>
+        <li {% if current_page == 1 %}class="disabled"{% endif %}>
+            <a href="{{ path('palabre_user_list', {'page': previous_page}) }}">{{ 'user.list.previous'|trans }}</a>
+        </li>
+        {% for page in 1..last_page %}
+        <li {% if current_page == page %}class="disabled"{% endif %}>
+            <a href="{{ path('palabre_user_list', {'page': page}) }}">{{ page }}</a>
+        </li>
+        {% endfor %}
+        <li {% if current_page == last_page %}class="disabled"{% endif %}>
+            <a href="{{ path('palabre_user_list', {'page': next_page}) }}">{{ 'user.list.next'|trans }}</a>
+        </li>
+    </ul>
+ </div>
+{% endif %}
 {% endblock palabre_user_content %}
 
 {% endblock %}

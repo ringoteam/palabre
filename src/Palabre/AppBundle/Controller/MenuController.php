@@ -5,10 +5,10 @@ namespace Palabre\AppBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 /**
- * Classe UserController
+ * Classe MenuController
  *
  */
-class UserController extends Controller
+class MenuController extends Controller
 {
     public function profilMenuAction()
     {
@@ -60,6 +60,6 @@ class UserController extends Controller
      */
     protected function getTemplatePath()
     {
-        return 'PalabreAppBundle:User:';
+        return 'PalabreAppBundle:Menu:';
     }
 }
