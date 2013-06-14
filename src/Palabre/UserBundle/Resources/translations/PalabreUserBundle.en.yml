@@ -53,6 +53,7 @@ user:
         email: E-mail
         edit: Edit
         delete: Delete
+        sorting: Sorted by 
     edit:
         title: User edit
     create:

@@ -53,6 +53,7 @@ user:
         email: Adresse e-mail
         edit: Modifier
         delete: Supprimer
+        sorting: Triée par 
     edit:
         title: "Modification d'un utilisateur"
     create:
