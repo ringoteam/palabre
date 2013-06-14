@@ -1,0 +1,16 @@
+{% extends '::base.html.twig' %}
+{% trans_default_domain 'PalabreUserBundle' %}
+
+{% block main %}
+
+{% block palabre_user_content %}
+<h1>{{ 'user.create.title'|trans }}</h1>
+<form action="{{ path('palabre_user_create') }}" {{ form_enctype(form) }} method="POST">
+    {{ form_widget(form) }}
+    <div>
+        <input type="submit" value="{{ 'user.create.submit'|trans }}" />
+    </div>
+</form>
+{% endblock palabre_user_content %}
+
+{% endblock main %}

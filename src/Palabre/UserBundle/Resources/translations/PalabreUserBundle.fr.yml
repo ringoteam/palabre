@@ -39,7 +39,7 @@ menu:
     user:
         menu_label : Gestion des utilisateurs
         list: Liste utilisateurs
-        registration: Créer utilisateur
+        create: Créer utilisateur
 # user
 user:
     list:
@@ -55,3 +55,7 @@ user:
         delete: Supprimer
     edit:
         title: "Modification d'un utilisateur"
+    create:
+        title: "Enregistrement d'un nouvel utilisateur"
+        submit: Enregistrer
+        confirmed: "l'utilisateur %username% a été créé"

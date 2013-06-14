@@ -39,7 +39,7 @@ menu:
     user:
         menu_label : Gestion of users
         list: List of users
-        registration: Create user
+        create: Create user
 # user
 user:
     list:
@@ -55,3 +55,7 @@ user:
         delete: Delete
     edit:
         title: User edit
+    create:
+        title: "Register a new user"
+        submit: Register
+        confirmed: "User %username% has just been created"

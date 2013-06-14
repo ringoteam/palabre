@@ -40,8 +40,8 @@ class MenuController extends Controller
 
         // liens du menu user
         $aMenu = array();
-        $aMenu[0]['path'] = 'fos_user_registration_register';
-        $aMenu[0]['label'] = 'menu.user.registration';
+        $aMenu[0]['path'] = 'palabre_user_create';
+        $aMenu[0]['label'] = 'menu.user.create';
         $aMenu[1]['path'] = 'palabre_user_list';
         $aMenu[1]['label'] = 'menu.user.list';
 

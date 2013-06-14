@@ -26,6 +26,7 @@ class UserController extends Controller
     *
     * @param int $page : page courante
     * @todo : recherche par email, nom, prénom , login
+    * @todo : tris
     */
     public function listAction($page)
     {
@@ -63,6 +64,47 @@ class UserController extends Controller
 
     }
 
+
+    /**
+    * Création d'un user
+    *
+    * @param object Request $request : données du formulaire
+    */
+    public function createAction(Request $request)
+    {
+        
+        /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
+        $formFactory = $this->container->get('fos_user.registration.form.factory');
+        /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
+        $userManager = $this->container->get('fos_user.user_manager');
+
+        $user = $userManager->createUser();
+        $user->setEnabled(true);
+       
+        $form = $formFactory->createForm();
+        $form->setData($user);
+
+        if ('POST' === $request->getMethod()) {
+            $form->bind($request);
+
+            if ($form->isValid()) {
+                
+                $userManager->updateUser($user);
+
+                $this->get('session')->getFlashBag()->add('success', $this->get('translator')->trans('user.create.confirmed', array('%username%' => $user->getUsername()), 'PalabreUserBundle'));
+
+                $url = $this->container->get('router')->generate('palabre_user_list');
+                $response = new RedirectResponse($url);
+            
+                return $response;
+            }
+        }
+
+        return $this->render($this->getTemplatePath().'create.html.twig', 
+            array('form' => $form->createView())
+        );
+    }
+
     /**
     * Edition d'un user
     *
@@ -96,14 +138,13 @@ class UserController extends Controller
                 $userManager->updateUser($user);
                 
                 $url = $this->container->get('router')->generate('palabre_user_list');
-                 $response = new RedirectResponse($url);
+                $response = new RedirectResponse($url);
 
                 return $response;
             }
         }
 
-        return $this->container->get('templating')->renderResponse(
-            $this->getTemplatePath().'edit.html.twig',
+        return $this->render($this->getTemplatePath().'edit.html.twig', 
             array('form' => $form->createView())
         );
 
