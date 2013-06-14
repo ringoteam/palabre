@@ -47,8 +47,8 @@ class UserController extends Controller
         $types_tri[3]['value'] = 'email';
 
         //tri par defaut
-        $current_tri = 'lastname';
-        $label_current_tri = 'lastname';
+        $current_tri = 'lastName';
+        $label_current_tri = 'lastName';
 
         // controle tri
         for($i=0; $i<count($types_tri); $i++){
