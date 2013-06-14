@@ -6,6 +6,26 @@
 {% block palabre_user_content %}
 <h1>{{ 'user.list.title'|trans }}</h1>
 
+<div class="input-append">
+    <div class="btn-group">
+        <button class="btn dropdown-toggle" data-toggle="dropdown">
+            Trier par {{ label_current_tri|trans }}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+        {% for type_tri in types_tri %}
+            <li>
+                <a href="{{ path('palabre_user_list', {'tri': type_tri.value, 'page': current_page }) }}">{{ type_tri.label|trans }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
+
+
+
+
+
 {% if users is not empty %}
 <table class="table table-striped">
 <tbody>
@@ -38,15 +58,15 @@ Pas de user
 <div class="pagination pagination-centered">
     <ul>
         <li {% if current_page == 1 %}class="disabled"{% endif %}>
-            <a href="{{ path('palabre_user_list', {'page': previous_page}) }}">{{ 'user.list.previous'|trans }}</a>
+            <a href="{{ path('palabre_user_list', {'tri': current_tri, 'page': previous_page}) }}">{{ 'user.list.previous'|trans }}</a>
         </li>
         {% for page in 1..last_page %}
         <li {% if current_page == page %}class="disabled"{% endif %}>
-            <a href="{{ path('palabre_user_list', {'page': page}) }}">{{ page }}</a>
+            <a href="{{ path('palabre_user_list', {'tri': current_tri, 'page': page}) }}">{{ page }}</a>
         </li>
         {% endfor %}
         <li {% if current_page == last_page %}class="disabled"{% endif %}>
-            <a href="{{ path('palabre_user_list', {'page': next_page}) }}">{{ 'user.list.next'|trans }}</a>
+            <a href="{{ path('palabre_user_list', {'tri': current_tri, 'page': next_page}) }}">{{ 'user.list.next'|trans }}</a>
         </li>
     </ul>
  </div>

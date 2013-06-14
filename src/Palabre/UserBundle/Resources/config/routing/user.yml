@@ -1,6 +1,6 @@
 palabre_user_list:
-    pattern:   /list/{page}
-    defaults:  { _controller: PalabreUserBundle:User:list, page: 1 }
+    pattern:   /list/{tri}/{page}
+    defaults:  { _controller: PalabreUserBundle:User:list, tri: 'lastname', page: 1 }
 palabre_user_create:
     pattern:   /create/
     defaults:  { _controller: PalabreUserBundle:User:create }

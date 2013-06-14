@@ -24,21 +24,45 @@ class UserController extends Controller
     /**
     * Liste des users
     *
+    * @param string $tri : nom du champ du tri
     * @param int $page : page courante
     * @todo : recherche par email, nom, prénom , login
     * @todo : tris
     */
-    public function listAction($page)
+    public function listAction($tri = null, $page)
     {
 
         /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
         $userManager = $this->container->get('fos_user.user_manager');
 
-        // récupération des users en fct pagination
+        // liste de tris
+        $types_tri = array();
+        $types_tri[0]['label'] = 'user.list.last_name';
+        $types_tri[0]['value'] = 'lastName';
+        $types_tri[1]['label'] = 'user.list.first_name';
+        $types_tri[1]['value'] = 'firstName';
+        $types_tri[2]['label'] = 'user.list.username';
+        $types_tri[2]['value'] = 'username';
+        $types_tri[3]['label'] = 'user.list.email';
+        $types_tri[3]['value'] = 'email';
+
+        //tri par defaut
+        $current_tri = 'lastname';
+        $label_current_tri = 'lastname';
+
+        // controle tri
+        for($i=0; $i<count($types_tri); $i++){
+            if($types_tri[$i]['value'] == $tri){
+                $current_tri = $types_tri[$i]['value'];
+                $label_current_tri = $types_tri[$i]['label'];
+            }
+        }
+
+        // récupération des users en fct pagination et tri
         $all_users = array();
         $all_users = $userManager->findUsers();
         $total_users    = count($all_users);
-        $users_per_page = 2;
+        $users_per_page = 5;
         $last_page      = ceil($total_users / $users_per_page);
         $previous_page  = $page > 1 ? $page - 1 : 1;
         $next_page      = $page < $last_page ? $page + 1 : $last_page; 
@@ -47,12 +71,16 @@ class UserController extends Controller
                                 ->createQueryBuilder('p')
                                 ->setFirstResult(($page * $users_per_page) - $users_per_page)
                                 ->setMaxResults($users_per_page)
+                                ->orderBy('p.'.$tri)
                                 ->getQuery()
                                 ->getResult();
 
         return $this->render($this->getTemplatePath().'list.html.twig', 
             array(
                 'users' => $users,
+                'current_tri' => $current_tri,
+                'label_current_tri' => $label_current_tri,
+                'types_tri' => $types_tri,
                 'last_page' => $last_page,
                 'previous_page' => $previous_page,
                 'current_page' => $page,
